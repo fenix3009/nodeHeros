@@ -1,0 +1,34 @@
+extends layout
+
+block content
+            div.row
+                div.col-sm-6.col-md-4.repeated-hero(ng-repeat='hero in listaHeroes')
+                    div.thumbnail
+                        div.caption
+                            h3#titulo {{ hero.nombre_Heroe }}
+                            p#contenido Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id varius enim, non iaculis lacus. Nulla justo justo, venenatis nec.
+                            p
+                                a.btn.btn-danger(ng-click="deleteHero(hero.id)",href='#',role='button') borrar   
+                                a.btn.btn-default(href='#') boton
+
+            div.form-group.row
+                label.col-sm-2.form-control-label(for='nombre') Nombre real
+                div.col-sm-10
+                    input#nombre.form-control(ng-model='nombre_Real',type='text', placeholder='Nombre real')
+            div.form-group.row
+                label.col-sm-2.form-control-label(for='heroe') Nombre de heroe
+                div.col-sm-10
+                    input#heroe.form-control(ng-model='nombre_Heroe',type='text', placeholder='Nombre de heroe')
+                    
+            div.jumbotron
+                toaster-container.animated.tada(toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}")
+                h1 {{ nombre_Heroe }} 
+                p#linea Hola, mi nombre es {{ nombre_Real }} y mi identidad secreta es {{ nombre_Heroe}}
+                p#link 
+                    a.btn.btn-primary.btn-lg(ng-click="postHero()",href="#",role="button") Agregar
+
+
+
+
+
+
